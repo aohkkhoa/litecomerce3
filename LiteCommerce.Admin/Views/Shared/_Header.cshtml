@@ -1,0 +1,48 @@
+﻿<header class="main-header">
+    <!-- Logo -->
+    <a href="/Home" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>L</b>C</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Lite</b>Commerce</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    @{ var account = CookieHelper.CookieStringToAccount(User.Identity.Name); }
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="@account.Photo" class="user-image" alt="User Image">
+                        <span class="hidden-xs">@account.FullName</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="@account.Photo" class="img-circle" alt="User Image">
+                            <p>
+                                @account.FullName
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="~/Account/Profile" class="btn btn-default btn-flat">Lý lịch cá nhân</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="~/Account/Logout" class="btn btn-default btn-flat">Thoát</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

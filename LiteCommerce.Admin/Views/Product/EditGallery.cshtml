@@ -1,0 +1,55 @@
+﻿@model LiteCommerce.DomainModels.ProductGallery
+
+<form method="post" action="~/Product/SaveGallery">
+    <div class="text-danger form-group">
+        @Html.ValidationSummary()
+    </div>
+    @Html.HiddenFor(m => m.GalleryID)
+    <div class="form-group">
+        <label>Tên hàng:</label>
+        @Html.DropDownListFor(m => m.ProductID, SelectListHelpers.Products(), new { @class = "form-control" })
+        <div class="text-danger">@Html.ValidationMessageFor(m => m.ProductID)</div>
+    </div>
+    <div class="form-group">
+        <label>Anh </label>
+        @Html.TextBoxFor(m => m.Photo, new { @class = "form-control" })
+        <div class="text-danger">@Html.ValidationMessageFor(m => m.Photo)</div>
+    </div>
+    <div class="form-group">
+        <label>Mo ta</label>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Mã :</label>
+                @Html.TextBoxFor(m => m.DisplayOrder, new { @class = "form-control" })
+                <div class="text-danger">@Html.ValidationMessageFor(m => m.DisplayOrder)</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Trang thai :</label>
+                <select class="form-control" name="IsHidden">
+                    <option>False</option>
+                    <option>True</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> Lưu dữ liệu
+            </button>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="~/Product/Edit/@Model.ProductID" class="btn btn-warning">
+                <i class="fa fa-window-close"></i> Bỏ qua
+            </a>
+        </div>
+    </div>
+</form>
+
+
+
